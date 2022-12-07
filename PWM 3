@@ -1,0 +1,29 @@
+#include <wiringPi.h>
+#include <stdio.h>
+#include <stdlib.h>
+#include <stdint.h>
+#import tkinter as tk
+from tkinter import *
+from tkinter.font import Font
+window = tk.Tk()
+window.geometry("1000x1500") # Size of the window
+window['bg'] = 'light grey'
+
+int motorf = 7
+int motorb = 3
+int motore = 2
+
+int main (void)
+{
+    printf ("Raspberry Pi wiring Pi test program\n");
+    
+    if (wiringPiSetupGpio() == -1)
+        exit (1) ; 
+        
+    pinMode(7, PWM_OUTPUT);
+    pwmSetClock(2);
+    pwmSetRange (10);
+    pwmWrite (18,5);
+
+for (;;) delay (1000);
+}
